@@ -2,19 +2,20 @@
 
 # Prompt log
 
-**Name / Student ID:**
-**Agent(s) used:** e.g. GitHub Copilot (Agent mode), Gemini Code Assist, Gemini CLI, Claude Code, Codex, Cursor, Cline: …
-**Model(s):** …
-**Plan / tier:** e.g. Copilot Student, Copilot Free, Gemini free tier: …
+**Name / Student ID:** Chawakorn Samosorn / 6631308221
+
+**Agent(s) used:** GitHub Copilot (Agent mode)
+
+**Model(s):** GPT-6 Luna (`gpt-6-luna`)
+
+**Plan / tier:** Copilot Student
 
 Log every request you send to the agent. "Files the agent read" is what the agent reported, or what you saw it open.
 
-| # | Task / run | Agent + model | Message sent (short) | Files the agent read | Stayed within the allowed evidence? | Useful? (1–5) | Notes |
-|---|---|---|---|---|---|---|---|
-| 1 | 1-A | | `prompts/1-…` run A | | | | |
-| 2 | 1-B | | `prompts/1-…` run B | | | | |
-| 3 | 2-a | | `prompts/2-…` run a | | | | |
-| 4 | 2-b | | `prompts/2-…` run b | | | | |
-| 5 | 3 | | `prompts/3-…` | | | | |
-| 6 | | | | | | | |
-| 7 | | | | | | | |
+| #   | Task / run | Agent + model              | Message sent (short)                                                                                                                                                        | Files the agent read                                                                                                                                                                   | Stayed within the allowed evidence? | Useful? (1–5) | Notes                                                                                                                                                             |
+| --- | ---------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | 1-A        | GitHub Copilot; GPT-6 Luna | `AGENTS.md` first; follow `prompts/1-recover-architecture.md`, run A.                                                                                                       | `AGENTS.md`, `prompts/1-recover-architecture.md`, and `system/online-boutique/protos/demo.proto`.                                                                                      | Yes                                 | 2             | -                                                                                                                                                                 |
+| 2   | 1-B        | GitHub Copilot; GPT-6 Luna | `AGENTS.md` first; follow `prompts/1-recover-architecture.md`, run B.                                                                                                       | `system/online-boutique/protos/demo.proto`; 13 files under `system/online-boutique/kubernetes-manifests/`                                                                              | Yes                                 | 5             | Model requested a PowerShell terminal command (`Set-Content`) to write the architecture file, contrary to the repository's no-terminal rule, so I clicked reject. |
+| 3   | 2-a        | GitHub Copilot; GPT-6 Luna | Read `AGENTS.md` first; follow `prompts/2-write-adr.md`; `run: a`; `context: none`; `language: English`; pasted the R-12 requirement.                                       | `AGENTS.md`; `prompts/2-write-adr.md`; `docs/adr/template.md`                                                                                                                          | Yes                                 | 4             | -                                                                                                                                                                 |
+| 4   | 2-b        | GitHub Copilot; GPT-6 Luna | Read `AGENTS.md` first; follow `prompts/2-write-adr.md`; `run: b`; scenario, example ADR, and checkout source as context; `language: English`; pasted the R-12 requirement. | `AGENTS.md`; `prompts/2-write-adr.md`; `docs/adr/template.md`; `docs/scenario.md`; `docs/adr/0001-use-redis-for-cart-storage.md`; `system/online-boutique/src/checkoutservice/main.go` | Yes                                 | 5             | -                                                                                                                                                                 |
+| 5   | 3          | GitHub Copilot; GPT-6 Luna | Read `AGENTS.md` first; follow `prompts/3-review-adr.md`; `adr: docs/adr/0002-use-asynchronous-post-order-processing.md`; `language: English`.                              | `AGENTS.md`; `prompts/3-review-adr.md`; `docs/adr/0002-use-asynchronous-post-order-processing.md`; `docs/scenario.md`                                                                  | Yes                                 | 5             | Wrote `exercise/outputs/3-review.md` (1 file changed, +36 −0) and did not edit the ADR.                                                                           |
